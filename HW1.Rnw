@@ -33,6 +33,7 @@
 % each time I compile
 <<eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
 # Code to install the aRtsy package
+install.packages("aRtsy")
 @
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUESTION 1b
@@ -42,6 +43,7 @@
 \textbf{Solution:}
 % Note here I have removed eval=FALSE so this code will run
 <<size="scriptsize", warning=FALSE, message=FALSE>>=
+library("aRtsy")
 @
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUESTION 1c
@@ -53,6 +55,8 @@
 \textbf{Solution:}
 <<CollatzPlot1, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
 # help("aRtsy")
+set.seed(1)
+canvas_collatz(colors = colorPalette("tuscany1"))
 @
 %Code to insert a figure [H]ere
 \begin{figure}[H]
@@ -60,7 +64,7 @@
 <<echo=FALSE,fig.dim=c(4,4)>>=
 <<CollatzPlot1>>
 @
-\caption{A caption...}
+\caption{Collatz Plot 1}
 \label{CollatzPlot1}
 \end{center}
 \end{figure}
@@ -72,6 +76,8 @@
   update the caption.\\
 \textbf{Solution:}
 <<CollatzPlot2, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
+set.seed(1313)
+canvas_collatz(colors = colorPalette("tuscany1"))
 @
 %Code to insert a figure [H]ere
 \begin{figure}[H]
@@ -79,7 +85,7 @@
 <<echo=FALSE,fig.dim=c(4,4)>>=
 <<CollatzPlot2>>
 @
-\caption{A caption...}
+\caption{Collatz Plot 2}
 \label{CollatzPlot2}
 \end{center}
 \end{figure}
@@ -100,6 +106,13 @@
   \end{itemize}
 \textbf{Solution:}
 <<CollatzPlot3, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
+set.seed(1313)
+canvas_collatz(
+  colors = colorPalette("vrolik4"),
+  background = "#dbdbdb",
+  n = 72,
+  angle.odd = -0.05
+)
 @
 %Code to insert a figure [H]ere
 \begin{figure}[H]
@@ -107,7 +120,7 @@
 <<echo=FALSE,fig.dim=c(4,4)>>=
 <<CollatzPlot3>>
 @
-\caption{A caption...}
+\caption{Collatz Plot 3}
 \label{CollatzPlot3}
 \end{center}
 \end{figure}
@@ -118,6 +131,26 @@
   Note that I leave creating the R chunk and figure environment to you here. 
   Make sure that your code is well-formatted and your plot is appropriately scaled.\\
   \textbf{Solution:}
+  <<CollatzPlot4, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
+set.seed(1313)
+canvas_collatz(
+  colors = colorPalette("dark2"),
+  background = "#ffffff",
+  n = 150,
+  angle.odd = 0.45,
+  angle.even = 0.25
+)
+@
+%Code to insert a figure [H]ere
+\begin{figure}[H]
+\begin{center}
+<<echo=FALSE,fig.dim=c(4,4)>>=
+<<CollatzPlot4>>
+@
+\caption{Creative Collatz}
+\label{CollatzPlot4}
+\end{center}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUESTION 1g
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -125,7 +158,7 @@
   package and use \verb|\citep{}| to add a parenthetical citation to the end of
   the sentence below.
 \textbf{Solution:} We created the generative art in Question 1 using the \texttt{aRtsy}
-package for \texttt{R}.
+package for \texttt{R}. \citep{aRtsy}
 \end{enumerate}
 
 \newpage
@@ -142,6 +175,9 @@ package for \texttt{R}.
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \item Create a numeric vector containing the integers from 0 to 10 inclusive. Hint -- the solution to this problem is one of these values.\\
 \textbf{Solution:}
+<<size="scriptsize">>=
+vect <- seq(from=0, to=10, by=1)
+@
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % QUESTION 2b
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -165,4 +201,5 @@ package for \texttt{R}.
 \end{enumerate}
 \end{enumerate}
 
+\bibliography{bibliography}
 \end{document}
